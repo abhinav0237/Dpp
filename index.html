@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nirmaan – social network for SDG 9</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<nav id="nav" aria-label="Main"><div class="brand"><span class="mark"></span>Nirmaan</div></nav>
+<main>
+<section class="page" id="home">
+  <h1>Feed</h1><p class="sub">Updates from builders working on industry, innovation and infrastructure.</p>
+  <div class="cols"><div>
+    <div class="stories" id="stories"></div>
+    <div class="card">
+      <textarea id="draft" rows="2" aria-label="Write a post" placeholder="Share a build, a lesson or a question…"></textarea>
+      <div class="row sp" style="margin-top:10px;flex-wrap:wrap">
+        <div class="row"><select id="topic" class="field" style="width:auto" aria-label="Topic"><option>Infrastructure</option><option>Industry</option><option>Innovation</option></select><label class="meta"><input type="checkbox" id="asPoll"> Poll</label></div>
+        <button class="btn" id="postBtn">Post update</button>
+      </div>
+    </div>
+    <div id="feed"></div>
+  </div>
+  <aside class="rail">
+    <div class="card"><h3>Trending in SDG 9</h3><a href="#explore" data-q="LoRa">#LoRaMesh · 214 posts</a><a href="#explore" data-q="Solar">#SolarForClinics · 168</a><a href="#explore" data-q="Road">#SmartRoads · 97</a><a href="#explore" data-q="Cold">#ColdChain · 61</a></div>
+    <div class="card"><h3>People to follow</h3><div id="follow"></div></div>
+  </aside></div>
+</section>
+
+<section class="page" id="explore">
+  <h1>Explore</h1><p class="sub">Open projects that need people.</p>
+  <div class="hero"><h2>Resilient infrastructure starts with people who share their work.</h2><p>Target 9.1 asks for quality, reliable infrastructure for everyone. Find a build and offer your skills.</p></div>
+  <input class="field" id="q" type="search" placeholder="Search projects, for example solar or road" aria-label="Search projects" style="margin-top:12px">
+  <div class="chips" id="chips"></div><div class="grid" id="projects"></div>
+</section>
+
+<section class="page" id="hubs">
+  <h1>Hubs</h1><p class="sub">Join communities organised around a shared problem.</p><div class="grid" id="hubList"></div>
+</section>
+
+<section class="page" id="chat">
+  <h1>Chat</h1><p class="sub">Direct messages and group chats.</p>
+  <div class="chat" id="chatBox">
+    <div class="list"><input class="field" id="cs" type="search" placeholder="Search chats" aria-label="Search chats"><div id="convs"></div></div>
+    <div class="thread">
+      <div class="thead"><button class="back" id="back">‹ All chats</button><div class="name" id="cName"></div><div class="meta" id="cRole"></div></div>
+      <div class="msgs" id="msgs" aria-live="polite"></div><div class="typing" id="typing"></div>
+      <form class="compose" id="form"><button type="button" class="q" data-e="👍" aria-label="Add thumbs up">👍</button><button type="button" class="q" data-e="💡" aria-label="Add idea">💡</button><input class="field" id="msgIn" aria-label="Message" placeholder="Write a message" autocomplete="off"><button class="btn" type="submit">Send</button></form>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="alerts">
+  <div class="row sp"><h1>Alerts</h1><button class="btn ghost sm" id="readAll">Mark all read</button></div><p class="sub">Likes, comments, invites and replies.</p><div id="alist"></div>
+</section>
+
+<section class="page" id="profile">
+  <h1>Profile</h1><p class="sub">Your public page.</p>
+  <div class="card">
+    <div class="cover"></div><div class="av pav" style="background:#FF5C7A">Y</div>
+    <h2 style="margin-top:8px">You</h2><div class="meta">Palakkad, Kerala · Open to collaborate</div>
+    <p id="bioT"></p>
+    <div class="row"><input class="field" id="bioIn" aria-label="Edit bio" placeholder="Update your bio"><button class="btn sm" id="bioBtn">Save bio</button></div>
+    <div class="chips"><span class="tag" style="margin:0">Unity</span><span class="tag" style="margin:0">React</span><span class="tag" style="margin:0">IoT</span><span class="tag" style="margin:0">Civil design</span></div>
+    <div class="stats"><div><b id="sPosts">0</b><span class="meta">Posts</span></div><div><b id="sFol">128</b><span class="meta">Connections</span></div><div><b id="sHubs">0</b><span class="meta">Hubs</span></div></div>
+    <button class="btn ghost" id="theme">Switch light/dark</button>
+  </div>
+  <div class="card"><h3>Your SDG 9 contribution</h3>
+    <div class="row sp" style="margin-top:10px"><span>9.1 Reliable infrastructure</span><b>60%</b></div><div class="bar"><i style="width:60%"></i></div>
+    <div class="row sp" style="margin-top:10px"><span>9.5 Research and innovation</span><b>35%</b></div><div class="bar"><i style="width:35%"></i></div></div>
+  <div class="tabs"><button class="chip" data-tab="mine" aria-pressed="true">Your posts</button><button class="chip" data-tab="saved" aria-pressed="false">Saved</button></div>
+  <div id="mine"></div>
+</section>
+</main>
+</div>
+<div class="sv" id="sv"><div><div class="pb"><i></i></div><div class="row" style="margin-top:14px" id="svH"></div><p id="svT"></p><span class="meta" style="color:#cfe">Tap anywhere to close</span></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
